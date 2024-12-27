@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minio
+  namespace: my-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minio
+  template:
+    metadata:
+      labels:
+        app: minio
+    spec:
+      containers:
+      - name: minio
+        image: minio/minio
+        args:
+        - server
+        - /data
+        env:
+        - name: MINIO_ROOT_USER
+          value: "minioadmin" # Change this to a secure username
+        - name: MINIO_ROOT_PASSWORD
+          value: "minioadmin" # Change this to a secure password
+        ports:
+        - containerPort: 9000
+        - containerPort: 9001
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: minio
+  namespace: my-app
+spec:
+  selector:
+    app: minio
+  ports:
+  - protocol: TCP
+    port: 9000
+    targetPort: 9000
+  - protocol: TCP
+    port: 9001
+    targetPort: 9001
