@@ -45,6 +45,19 @@ def load_documents():
 def save_documents(documents):
     DOCUMENTS_FILE.write_text(json.dumps(documents))
 
+@app.get("/")
+async def root():
+    return {
+        "message": "Welcome to the RAG Chatbot API",
+        "endpoints": {
+            "GET /documents": "List all documents",
+            "POST /documents/upload": "Upload new documents",
+            "DELETE /documents/{document_id}": "Delete a specific document",
+            "POST /chat": "Chat with the documents",
+            "/uploads/*": "Static file access"
+        }
+    }
+
 @app.get("/documents")
 async def get_documents():
     try:

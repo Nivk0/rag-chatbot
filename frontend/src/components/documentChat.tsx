@@ -249,7 +249,7 @@ const DocumentChat: React.FC = () => {
     return (
         <div className="flex flex-col h-screen max-w-4xl mx-auto p-4">
             <div className="flex items-center justify-between mb-4">
-                <h1 className="text-2xl font-bold text-gray-900">Document Chat</h1>
+                <h1 className="text-2xl font-bold text-white-900">Document Chat</h1>
                 <button
                     onClick={() => fileInputRef.current?.click()}
                     className="flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
@@ -269,7 +269,7 @@ const DocumentChat: React.FC = () => {
 
             {documents.length > 0 && (
                 <div className="mb-4">
-                    <h2 className="text-lg font-semibold mb-2 text-gray-900">Documents</h2>
+                    <h2 className="text-lg font-semibold mb-2 text-white-900">Documents</h2>
                     <div className="flex flex-wrap gap-2">
                         {documents.map((doc) => (
                             <div key={doc.id} className="flex items-center gap-2">

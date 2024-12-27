@@ -10,7 +10,7 @@ class Settings(BaseSettings):
     CHUNK_SIZE: int = 1000
     CHUNK_OVERLAP: int = 200
     EMBEDDINGS_MODEL: str = "BAAI/bge-small-en"
-    OPENAI_API_KEY: str = os.getenv("Secret key", "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")  # Add type annotation
+    OPENAI_API_KEY: str = os.getenv("key name", "key")  # Add type annotation
     ENABLE_FALLBACK_MODEL: bool = True
     MAX_RETRIES: int = 3
 
